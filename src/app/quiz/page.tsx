@@ -84,7 +84,7 @@ const questions: Question[] = [
       "Система личного анализа",
       "Соглашение об уровне сервиса (garanting uptime)",
       "Серверная логическая архитектура",
-      "Система_limiting access",
+      "Система ограничения доступа",
     ],
     correct: 1,
     explanation:
