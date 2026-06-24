@@ -14,13 +14,27 @@
         :root {
             --primary: #6C3FE0;
             --primary-dark: #5230B5;
-            --accent: #00E5A0;
+            --accent: #00B87A;
             --bg-dark: #0B0D17;
             --bg-card: #12152A;
             --bg-card-hover: #1A1E38;
             --text: #E4E6F0;
             --text-muted: #8B8FA8;
             --border: #1E2240;
+            --nav-bg: rgba(11, 13, 23, 0.85);
+        }
+
+        [data-theme="light"] {
+            --primary: #6C3FE0;
+            --primary-dark: #5A32C5;
+            --accent: #009960;
+            --bg-dark: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #F5F6FA;
+            --text: #1A1D2E;
+            --text-muted: #5A5E78;
+            --border: #D8DAE5;
+            --nav-bg: rgba(240, 242, 245, 0.88);
         }
 
         html {
@@ -32,13 +46,14 @@
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(11, 13, 23, 0.85);
+            background: var(--nav-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
@@ -704,8 +719,6 @@
     </nav>
 
     <section class="hero">
-        <span class="bg-number bg-number-1">67</span>
-        <span class="bg-number bg-number-2">67</span>
         <div class="container">
             <div class="hero-content">
                 <div>
