@@ -98,6 +98,41 @@
             color: var(--accent);
         }
 
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 52px;
+            height: 28px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s, border-color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle::after {
+            content: '☀️';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        [data-theme="light"] .theme-toggle::after {
+            content: '🌙';
+            transform: translateX(24px);
+            background: var(--primary);
+        }
+
         .btn {
             display: inline-block;
             padding: 0.75rem 1.75rem;
@@ -188,6 +223,12 @@
             z-index: 0;
             opacity: 0.15;
             animation: matrix-fall linear infinite;
+        }
+
+        [data-theme="light"] .bg-number {
+            color: #00CC33;
+            text-shadow: 0 0 6px rgba(0, 204, 51, 0.4);
+            opacity: 0.1;
         }
 
         @keyframes matrix-fall {
@@ -715,6 +756,7 @@
                 <li><a href="#roadmap">Путь</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"></button>
         </div>
     </nav>
 
@@ -1007,6 +1049,23 @@
             <p>&copy; 2025 RPADev — Профессия RPA-разработчик</p>
         </div>
     </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const saved = localStorage.getItem('theme');
+
+        if (saved) {
+            root.setAttribute('data-theme', saved);
+        }
+
+        toggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
 
 </body>
 </html>
