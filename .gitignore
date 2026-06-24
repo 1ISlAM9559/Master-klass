@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Next.js
+.next/
+out/
+
+# Environment files
+.env
+.env*.local
