@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #f0f2f5;
+  --foreground: #1a1a2e;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);
+  min-height: 80vh;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #0f3460;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e94560;
+  border: 2px solid #0f3460;
+}
+
+.quiz-option {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.quiz-option:hover {
+  background: #e6f7ff;
+  border-color: #1890ff;
+}
+.quiz-option.selected {
+  background: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+.quiz-option.correct {
+  background: #52c41a;
+  color: white;
+  border-color: #52c41a;
+}
+.quiz-option.wrong {
+  background: #ff4d4f;
+  color: white;
+  border-color: #ff4d4f;
+}
