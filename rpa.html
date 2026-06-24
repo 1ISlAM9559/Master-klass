@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPA Разработчик — Профессия будущего</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C3FE0;
+            --primary-dark: #5230B5;
+            --accent: #00B87A;
+            --bg-dark: #0B0D17;
+            --bg-card: #12152A;
+            --bg-card-hover: #1A1E38;
+            --text: #E4E6F0;
+            --text-muted: #8B8FA8;
+            --border: #1E2240;
+            --nav-bg: rgba(11, 13, 23, 0.85);
+        }
+
+        [data-theme="light"] {
+            --primary: #6C3FE0;
+            --primary-dark: #5A32C5;
+            --accent: #009960;
+            --bg-dark: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #F5F6FA;
+            --text: #1A1D2E;
+            --text-muted: #5A5E78;
+            --border: #D8DAE5;
+            --nav-bg: rgba(240, 242, 245, 0.88);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            width: 52px;
+            height: 28px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s, border-color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle::after {
+            content: '☀️';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        [data-theme="light"] .theme-toggle::after {
+            content: '🌙';
+            transform: translateX(24px);
+            background: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 63, 224, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--border);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108, 63, 224, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 229, 160, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .bg-number {
+            position: absolute;
+            font-size: 67px;
+            width: 67px;
+            height: 67px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+            color: #00FF41;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.6), 0 0 20px rgba(0, 255, 65, 0.3);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            opacity: 0.15;
+            animation: matrix-fall linear infinite;
+        }
+
+        [data-theme="light"] .bg-number {
+            color: #00CC33;
+            text-shadow: 0 0 6px rgba(0, 204, 51, 0.4);
+            opacity: 0.1;
+        }
+
+        @keyframes matrix-fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .matrix-col {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .matrix-col .bg-number {
+            position: absolute;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(108, 63, 224, 0.15);
+            border: 1px solid rgba(108, 63, 224, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .stat h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .code-window {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F57; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #28CA41; }
+
+        .code-body {
+            padding: 1.5rem;
+            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .code-body .keyword { color: var(--primary); }
+        .code-body .string { color: var(--accent); }
+        .code-body .comment { color: #4A4E68; }
+        .code-body .func { color: #E8D44D; }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            background: rgba(0, 229, 160, 0.1);
+            border: 1px solid rgba(0, 229, 160, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .about-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(108, 63, 224, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* SKILLS */
+        .skills-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .skill-group h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--primary);
+        }
+
+        .skill-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* TOOLS */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tool-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tool-card p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* SALARY */
+        .salary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .salary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .salary-card:hover {
+            border-color: var(--primary);
+        }
+
+        .salary-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(108, 63, 224, 0.1), rgba(0, 229, 160, 0.05));
+        }
+
+        .salary-card .level {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .salary-card .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .salary-card .period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* STEPS */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(108, 63, 224, 0.25);
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+        }
+
+        .faq-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(108, 63, 224, 0.12), rgba(0, 229, 160, 0.06));
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .salary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="matrix-col">
+        <span class="bg-number" style="left: 3%;  animation-duration: 8s;  animation-delay: 0s;">67</span>
+        <span class="bg-number" style="left: 8%;  animation-duration: 12s; animation-delay: 1s;">67</span>
+        <span class="bg-number" style="left: 14%; animation-duration: 9s;  animation-delay: 3s;">67</span>
+        <span class="bg-number" style="left: 20%; animation-duration: 11s; animation-delay: 0.5s;">67</span>
+        <span class="bg-number" style="left: 26%; animation-duration: 10s; animation-delay: 2s;">67</span>
+        <span class="bg-number" style="left: 32%; animation-duration: 7s;  animation-delay: 4s;">67</span>
+        <span class="bg-number" style="left: 38%; animation-duration: 13s; animation-delay: 1.5s;">67</span>
+        <span class="bg-number" style="left: 44%; animation-duration: 8s;  animation-delay: 3.5s;">67</span>
+        <span class="bg-number" style="left: 50%; animation-duration: 11s; animation-delay: 0s;">67</span>
+        <span class="bg-number" style="left: 56%; animation-duration: 9s;  animation-delay: 2.5s;">67</span>
+        <span class="bg-number" style="left: 62%; animation-duration: 10s; animation-delay: 1s;">67</span>
+        <span class="bg-number" style="left: 68%; animation-duration: 12s; animation-delay: 4.5s;">67</span>
+        <span class="bg-number" style="left: 74%; animation-duration: 7s;  animation-delay: 0.5s;">67</span>
+        <span class="bg-number" style="left: 80%; animation-duration: 11s; animation-delay: 3s;">67</span>
+        <span class="bg-number" style="left: 86%; animation-duration: 9s;  animation-delay: 2s;">67</span>
+        <span class="bg-number" style="left: 92%; animation-duration: 13s; animation-delay: 1.5s;">67</span>
+        <span class="bg-number" style="left: 5%;  animation-duration: 14s; animation-delay: 5s;">67</span>
+        <span class="bg-number" style="left: 17%; animation-duration: 8s;  animation-delay: 6s;">67</span>
+        <span class="bg-number" style="left: 35%; animation-duration: 10s; animation-delay: 4s;">67</span>
+        <span class="bg-number" style="left: 48%; animation-duration: 12s; animation-delay: 2s;">67</span>
+        <span class="bg-number" style="left: 60%; animation-duration: 9s;  animation-delay: 5.5s;">67</span>
+        <span class="bg-number" style="left: 72%; animation-duration: 11s; animation-delay: 0s;">67</span>
+        <span class="bg-number" style="left: 85%; animation-duration: 8s;  animation-delay: 3.5s;">67</span>
+        <span class="bg-number" style="left: 95%; animation-duration: 13s; animation-delay: 1s;">67</span>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">RPA<span>Dev</span></a>
+            <ul>
+                <li><a href="#about">О профессии</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#tools">Инструменты</a></li>
+                <li><a href="#salary">Зарплата</a></li>
+                <li><a href="#roadmap">Путь</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">Востребованная профессия 2025+</div>
+                    <h1>RPA-разработчик — автоматизируй <span class="highlight">будущее</span></h1>
+                    <p>Создавай роботов, которые берут на себя рутину. Автоматизируй бизнес-процессы и освободи время людей для творческой работы.</p>
+                    <div class="hero-buttons">
+                        <a href="#roadmap" class="btn btn-primary">Начать путь</a>
+                        <a href="#about" class="btn btn-outline">Узнать больше</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>350K+</h3>
+                            <p>руб./мес. зарплата</p>
+                        </div>
+                        <div class="stat">
+                            <h3>40%</h3>
+                            <p>рост вакансий / год</p>
+                        </div>
+                        <div class="stat">
+                            <h3>#1</h3>
+                            <p>навык в автоматизации</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dot dot-red"></div>
+                            <div class="code-dot dot-yellow"></div>
+                            <div class="code-dot dot-green"></div>
+                        </div>
+                        <div class="code-body">
+                            <span class="comment">// Автоматизация отчётов</span><br>
+                            <span class="keyword">flow</span> = <span class="func">create_flow</span>(<span class="string">"Закрытие месяца"</span>)<br><br>
+                            <span class="keyword">flow</span>.<span class="func">open_sap</span>()<br>
+                            <span class="keyword">flow</span>.<span class="func">extract_data</span>(<span class="string">"FBL3N"</span>)<br>
+                            <span class="keyword">flow</span>.<span class="func">transform</span>(rules=<span class="string">"template.xlsx"</span>)<br>
+                            <span class="keyword">flow</span>.<span class="func">send_email</span>(to=<span class="string">"cfo@company.ru"</span>)<br><br>
+                            <span class="comment"># Время выполнения: 5 мин</span><br>
+                            <span class="comment"># Вместо 4 часов вручную</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-label">О профессии</div>
+            <h2 class="section-title">Кто такой RPA-разработчик?</h2>
+            <p class="section-desc">Специалист, который создаёт программных роботов для автоматизации повторяющихся бизнес-процессов — от обработки документов до интеграции систем.</p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">⚙️</div>
+                    <h3>Автоматизация</h3>
+                    <p>Проектируешь и разрабатываешь роботов (бот), которые替代ают ручную работу: ввод данных, сверку таблиц, генерацию отчётов.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🔗</div>
+                    <h3>Интеграция</h3>
+                    <p>Связываешь разные системы друг с другом: ERP, CRM, 1С, Excel, базы данных — всё работает как единое целое.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Аналитика</h3>
+                    <p>Анализируешь процессы, выявляешь узкие места и предлагаешь решения для их автоматизации и оптимизации.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🛡️</div>
+                    <h3>Надёжность</h3>
+                    <p>Обеспечиваешь стабильную работу роботов: мониторинг, обработка ошибок, логирование и тестирование.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📈</div>
+                    <h3>Масштабирование</h3>
+                    <p>Развиваешь автоматизацию от единичных ботов до полноценных цифровых workforce-платформ для всей компании.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3>Инновации</h3>
+                    <p>Внедряешь AI и ML в автоматизацию, создавая интеллектуальных роботов, способных принимать решения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="skills-layout">
+                <div>
+                    <div class="section-label">Навыки</div>
+                    <h2 class="section-title">Что нужно знать</h2>
+                    <p class="section-desc">Набор компетенций успешного RPA-разработчика — от технических навыков до понимания бизнес-процессов.</p>
+                </div>
+                <div>
+                    <div class="skill-group">
+                        <h3>Технические навыки</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-dot"></span>Анализ бизнес-процессов</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Разработка на Python / C# / Java</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Работа с API и web-сервисами</li>
+                            <li class="skill-item"><span class="skill-dot"></span>SQL и работа с базами данных</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Платформы: UiPath, Blue Prism, Power Automate</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Версионирование: Git</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Тестирование и дебаггинг</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group" style="margin-top: 2rem;">
+                        <h3>Мягкие навыки</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item"><span class="skill-dot"></span>Документирование процессов</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Коммуникация с заказчиками</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Структурное мышление</li>
+                            <li class="skill-item"><span class="skill-dot"></span>Управление временем</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools">
+        <div class="container">
+            <div class="section-label">Инструменты</div>
+            <h2 class="section-title">Технологический стек</h2>
+            <p class="section-desc">Популярные платформы и инструменты, которыми пользуются RPA-разработчики по всему миру.</p>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🟠</div>
+                    <h4>UiPath</h4>
+                    <p>Лидер рынка RPA. Скринчепинг, Orchestration, AI Center.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🔵</div>
+                    <h4>Blue Prism</h4>
+                    <p>Enterprise-платформа с усиленной безопасностью.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🟡</div>
+                    <h4>Power Automate</h4>
+                    <p>Microsoft-экосистема. Desktop + Cloud автоматизация.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🟢</div>
+                    <h4>AUTOMATION ANYWHERE</h4>
+                    <p>Облачная платформа с AI- и ML-интеграцией.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🐍</div>
+                    <h4>Python</h4>
+                    <p>Скрипты автоматизации, парсинг, работа с Excel/CSV.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🗃️</div>
+                    <h4>1С:Предприятие</h4>
+                    <p>Автоматизация учёта и документооборота в России.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🐙</div>
+                    <h4>Git</h4>
+                    <p>Контроль версий и командная разработка.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">📋</div>
+                    <h4>Jira / Confluence</h4>
+                    <p>Управление задачами и документация.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="salary">
+        <div class="container">
+            <div class="section-label">Зарплата</div>
+            <h2 class="section-title">Доход в индустрии</h2>
+            <p class="section-desc">Уровень зарплат зависит от опыта, региона и стека технологий. Вот ориентиры для российского рынка.</p>
+            <div class="salary-grid">
+                <div class="salary-card">
+                    <div class="level">Junior</div>
+                    <div class="amount">150 — 250K</div>
+                    <div class="period">руб./мес. на руки</div>
+                </div>
+                <div class="salary-card featured">
+                    <div class="level">Middle</div>
+                    <div class="amount">250 — 450K</div>
+                    <div class="period">руб./мес. на руки</div>
+                </div>
+                <div class="salary-card">
+                    <div class="level">Senior / Lead</div>
+                    <div class="amount">450K — 700K+</div>
+                    <div class="period">руб./мес. на руки</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <div class="section-label">Дорожная карта</div>
+            <h2 class="section-title">Как стать RPA-разработчиком</h2>
+            <p class="section-desc">Пошаговый план от нуля до первой позиции в карьере.</p>
+            <div class="steps-list">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Изучи основы программирования</h3>
+                        <p>Начни с Python или C#. Пойми переменные, циклы, функции, работу с файлами и API. Это фундамент для любой автоматизации.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Освой одну RPA-платформу</h3>
+                        <p>Выбери UiPath, Power Automate или Automation Anywhere. Пройди бесплатные курсы и сделай 2–3 простых бота.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Пойми бизнес-процессы</h3>
+                        <p>Научись описывать процессы (BPMN), выявлять задачи для автоматизации и общаться с заказчиками.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Собери портфолио</h3>
+                        <p>Создай 3–5 проектов: парсер сайтов, автозаполнение форм, интеграция с 1С, генератор отчётов. Выложи на GitHub.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Получи сертификацию</h3>
+                        <p>UiPath Certified Professional, Microsoft PL-500, Automation Anywhere Certified — подтверди навыки документально.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3>Начни карьеру</h3>
+                        <p>Претендуй на позицию Junior RPA Developer / RPA Analyst. Дальше — рост до Middle, Lead,解决方案 архитектора.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Нужно ли уметь программировать?</h4>
+                    <p>Базовые навыки программирования приветствуются, но не обязательны на старте. Многие RPA-платформы (UiPath, Power Automate) предлагают low-code среду. Однако для серьёзных проектов знание Python или C# станет значительным преимуществом.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Сколько времени нужно на обучение?</h4>
+                    <p>При занятиях 2–3 часа в день до уровня Junior за 3–6 месяцев. Период зависит от предыдущего опыта: программист освоит за 2–3 месяца, новичок — за 4–6.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Какая платформа лучше для начала?</h4>
+                    <p>UiPath — самая популярная с бесплатной Community-версией и большим комьюнити. Power Automate удобен, если вы в экосистеме Microsoft. Automation Anywhere хорош для облачных решений.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>RPA не заменит ли AI разработчиков?</h4>
+                    <p>Наоборот — AI делает RPA ещё востребованнее. Интеллектуальные роботы (IPA) требуют специалистов, которые умеют сочетать автоматизацию с машинным обучением. Это растущий рынок.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="cta">
+            <h2>Готов начать карьеру в RPA?</h2>
+            <p>Автоматизация — это не тренд, а новая реальность. Стань частью цифровой трансформации уже сегодня.</p>
+            <a href="#roadmap" class="btn btn-primary">Следовать дорожной картой</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RPADev — Профессия RPA-разработчик</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const saved = localStorage.getItem('theme');
+
+        if (saved) {
+            root.setAttribute('data-theme', saved);
+        }
+
+        toggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
+
+</body>
+</html>
