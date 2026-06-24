@@ -647,6 +647,235 @@
             font-size: 0.85rem;
         }
 
+        /* TABS SECTION */
+        .tabs-section {
+            padding: 6rem 0;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-window {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-window::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .info-window h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            background: rgba(0, 119, 204, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+        }
+
+        .info-list li:hover {
+            border-color: var(--primary);
+        }
+
+        .info-list li .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-list li strong {
+            color: var(--accent);
+        }
+
+        .salary-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .salary-detail-card {
+            background: rgba(0, 119, 204, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .salary-detail-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .salary-detail-card .level-badge {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            background: rgba(0, 119, 204, 0.15);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .salary-detail-card .range {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .salary-detail-card .period {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .salary-detail-card ul {
+            list-style: none;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .salary-detail-card ul li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .salary-detail-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .career-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .career-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .career-step {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(0, 119, 204, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .career-step:hover {
+            border-color: var(--primary);
+        }
+
+        .career-step::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 1.8rem;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+        }
+
+        .career-step h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            color: var(--accent);
+        }
+
+        .career-step .exp {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .career-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
         @media (max-width: 900px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -687,6 +916,14 @@
 
             .salary-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .salary-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs-header {
+                justify-content: center;
             }
 
             nav ul {
@@ -731,7 +968,7 @@
                 <li><a href="#about">О профессии</a></li>
                 <li><a href="#skills">Навыки</a></li>
                 <li><a href="#tools">Инструменты</a></li>
-                <li><a href="#salary">Зарплата</a></li>
+                <li><a href="#details">Подробнее</a></li>
                 <li><a href="#roadmap">Путь</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
@@ -914,26 +1151,115 @@
         </div>
     </section>
 
-    <section id="salary">
+    <section class="tabs-section" id="details">
         <div class="container">
-            <div class="section-label">Зарплата</div>
-            <h2 class="section-title">Доход в индустрии</h2>
-            <p class="section-desc">Уровень зарплат зависит от опыта, сертификаций и типа инфраструктуры. Вот ориентиры для российского рынка.</p>
-            <div class="salary-grid">
-                <div class="salary-card">
-                    <div class="level">Junior</div>
-                    <div class="amount">100 — 180K</div>
-                    <div class="period">руб./мес. на руки</div>
+            <div class="section-label">Подробнее</div>
+            <h2 class="section-title">Всё о профессии</h2>
+            <p class="section-desc">Выбери раздел и узнай детали: задачи, зарплата, трудности и карьерный путь.</p>
+
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="tasks">Задачи</button>
+                <button class="tab-btn" data-tab="salary">Зарплата</button>
+                <button class="tab-btn" data-tab="challenges">Трудности</button>
+                <button class="tab-btn" data-tab="career">Карьерный рост</button>
+            </div>
+
+            <div class="tab-panel active" id="tasks">
+                <div class="info-window">
+                    <h3>📋 Основные задачи</h3>
+                    <ul class="info-list">
+                        <li><span class="icon">🔍</span><div><strong>Диагностика сети</strong> — выявляешь проблемы: потери пакетов, задержки, ошибки DNS, перегрузку каналов и сбои оборудования.</div></li>
+                        <li><span class="icon">🧪</span><div><strong>Тестирование</strong> — проводишь нагрузочное, стрессовое и функциональное тестирование сетей перед запуском в продакшн.</div></li>
+                        <li><span class="icon">📡</span><div><strong>Мониторинг</strong> — настраиваешь Zabbix, Grafana, PRTG для отслеживания метрик сети в реальном времени.</div></li>
+                        <li><span class="icon">🛡️</span><div><strong>Безопасность</strong> — проверяешь уязвимости, настраиваешь firewall, контролируешь трафик, реагируешь на инциденты.</div></li>
+                        <li><span class="icon">⚙️</span><div><strong>Конфигурация</strong> — настраиваешь маршрутизаторы, коммутаторы, VLAN, VPN, DNS, DHCP — всё работает как часы.</div></li>
+                        <li><span class="icon">📋</span><div><strong>Документирование</strong> — создаёшь схемы сетей, описываешь процедуры, ведёшь журналы инцидентов.</div></li>
+                    </ul>
                 </div>
-                <div class="salary-card featured">
-                    <div class="level">Middle</div>
-                    <div class="amount">180 — 350K</div>
-                    <div class="period">руб./мес. на руки</div>
+            </div>
+
+            <div class="tab-panel" id="salary">
+                <div class="info-window">
+                    <h3>💰 Зарплата по уровням</h3>
+                    <div class="salary-detail-grid">
+                        <div class="salary-detail-card">
+                            <div class="level-badge">Junior</div>
+                            <div class="range">100 — 180K</div>
+                            <div class="period">руб./мес. на руки</div>
+                            <ul>
+                                <li>Базовая диагностика (ping, traceroute)</li>
+                                <li>Настройка простых VLAN</li>
+                                <li>Мониторинг по шаблонам</li>
+                            </ul>
+                        </div>
+                        <div class="salary-detail-card">
+                            <div class="level-badge">Middle</div>
+                            <div class="range">180 — 350K</div>
+                            <div class="period">руб./мес. на руки</div>
+                            <ul>
+                                <li>Анализ трафика в Wireshark</li>
+                                <li>Настройка VPN и маршрутизации</li>
+                                <li>Автоматизация на Python/Bash</li>
+                            </ul>
+                        </div>
+                        <div class="salary-detail-card">
+                            <div class="level-badge">Senior / Lead</div>
+                            <div class="range">350K — 550K+</div>
+                            <div class="period">руб./мес. на руки</div>
+                            <ul>
+                                <li>Проектирование сетевой архитектуры</li>
+                                <li>Управление командой NOC</li>
+                                <li>Внедрение SD-WAN / Zero Trust</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="salary-card">
-                    <div class="level">Senior / Lead</div>
-                    <div class="amount">350K — 550K+</div>
-                    <div class="period">руб./мес. на руки</div>
+            </div>
+
+            <div class="tab-panel" id="challenges">
+                <div class="info-window">
+                    <h3>⚡ Основные трудности</h3>
+                    <ul class="info-list">
+                        <li><span class="icon">🌙</span><div><strong>Ночные инциденты</strong> — сбои сети не ждут утра. Дежурства, ночные выезды, восстановление сервисов под давлением.</div></li>
+                        <li><span class="icon">🧩</span><div><strong>Сложная диагностика</strong> — проблема может быть где угодно: в кабеле, настройке, конфликте IPs, нагрузке, обновлении прошивки.</div></li>
+                        <li><span class="icon">🏗️</span><div><strong>Легаси-оборудование</strong> — старые коммутаторы без SNMP, нестандартные протоколы, отсутствие документации по сети.</div></li>
+                        <li><span class="icon">👥</span><div><strong>Давление бизнеса</strong> — «сеть работает медленно» без конкретики. Нужно быстро находить причину и объяснять нетехническому руководству.</div></li>
+                        <li><span class="icon">📚</span><div><strong>Постоянное обучение</strong> — обновления Cisco, новые стандарты Wi-Fi 6E, SD-WAN, SASE. Нужно следить за трендами.</div></li>
+                        <li><span class="icon">🔒</span><div><strong>Безопасность</strong> — каждая настройка может стать уязвимостью. Нужно балансировать между доступностью и защитой.</div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="career">
+                <div class="info-window">
+                    <h3>🚀 Карьерный путь</h3>
+                    <div class="career-timeline">
+                        <div class="career-step">
+                            <h4>Junior NOC Engineer / Network Technician</h4>
+                            <div class="exp">0 — 1 год опыта</div>
+                            <p>Мониторинг сети, обработка тикетов, базовая диагностика, документирование инцидентов под руководством старших.</p>
+                        </div>
+                        <div class="career-step">
+                            <h4>Middle Network Engineer</h4>
+                            <div class="exp">1 — 3 года опыта</div>
+                            <p>Настройка и поддержка сетевого оборудования, VPN, VLAN. Автоматизация рутинных задач. Анализ трафика.</p>
+                        </div>
+                        <div class="career-step">
+                            <h4>Senior Network Engineer</h4>
+                            <div class="exp">3 — 5 лет опыта</div>
+                            <p>Проектирование сетевой архитектуры, внедрение новых технологий, настройка сложных сценариев (BGP, MPLS).</p>
+                        </div>
+                        <div class="career-step">
+                            <h4>Network Architect / Team Lead</h4>
+                            <div class="exp">5+ лет опыта</div>
+                            <p>Стратегическое планирование инфраструктуры, управление командой, выбор технологий и вендоров.</p>
+                        </div>
+                        <div class="career-step">
+                            <h4>Head of Network / Infrastructure Director</h4>
+                            <div class="exp">7+ лет опыта</div>
+                            <p>Управление всей сетевой инфраструктурой компании. Бюджетирование, цифровая трансформация, Zero Trust.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1044,6 +1370,15 @@
             const next = current === 'light' ? 'dark' : 'light';
             root.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
         });
     </script>
 
